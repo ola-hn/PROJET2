@@ -20,5 +20,26 @@
                 }
             ?>
         </div>
+         <div>
+             <button><a href="login.php?supression=true">Supprimer son compte</a></button>
+             <?php
+             include "./logout.php";
+             if(isset($_GET['supression'])){
+                $id = $_GET["id_utilisateur"];
+                $del = mysqli_query($db,"DELETE FROM utilisateur WHERE id_utilisateur = '$id'");
+                if($del){
+                    mysqli_close($db);
+                    header("location: index.php?erreur=succès");
+                    exit();
+                }
+                else{
+                    header("location: index.php?erreur=pasdesupression");
+                    echo "Echo deleting record";
+
+                }
+             }
+             
+             ?>
+         </div>       
     </body>
 </html>
