@@ -21,10 +21,12 @@ if(isset($_POST['submit'])){
 
         if($count==1) //email et mdp correct
         {
+            $id = $row['id_utilisateur'];
             $nom = $row['nom'];
             $prenom = $row['prenom'];
             $_SESSION['email'] = $nom;
             $_SESSION['prenom']=$prenom;
+            $_SESSION['id']=$id;
             header('Location: ../login.php');
         }else{
             header('Location: ../index.php?erreur=mdpouemailfaux');

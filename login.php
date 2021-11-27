@@ -25,8 +25,9 @@
              <?php
              include "./logout.php";
              if(isset($_GET['supression'])){
-                $id = $_GET["id_utilisateur"];
-                $del = mysqli_query($db,"DELETE FROM utilisateur WHERE id_utilisateur = '$id'");
+                $d = $_SESSION['id'];
+                $query = "DELETE FROM utilisateur WHERE id_utilisateur='$d'";
+                $del = mysqli_query($db,$query);
                 if($del){
                     mysqli_close($db);
                     header("location: index.php?erreur=succès");

@@ -6,4 +6,5 @@
     $db = mysqli_connect($db_host, $db_username, $db_password, $db_name)
         or die('Connexion impossible à la base de données');
 
+    
 ?>
